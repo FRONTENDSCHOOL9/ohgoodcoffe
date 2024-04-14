@@ -3,6 +3,8 @@ import useUserStore from '@zustand/store.js';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 
+console.log('TEST@@@@@');
+
 function Login() {
   const { register, handleSubmit } = useForm({
     values: {
