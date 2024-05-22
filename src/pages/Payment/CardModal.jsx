@@ -1,18 +1,13 @@
 import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
-import styles from '@pages/payment/CardModal.module.css';
+import styles from '@pages/Payment/CardModal.module.css';
 
 const CardModal = ({ isOpen, onClose, onSubmit }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm();
-  const cardNumberPart1 = watch('cardNumberPart1', '');
-  const cardNumberPart2 = watch('cardNumberPart2', '');
-  const cardNumberPart3 = watch('cardNumberPart3', '');
-  const cardNumberPart4 = watch('cardNumberPart4', '');
 
   if (!isOpen) return null;
 
@@ -104,7 +99,7 @@ const CardModal = ({ isOpen, onClose, onSubmit }) => {
             <input type="text" className={styles.formInput} {...register('cvv', { required: 'CVV는 필수 항목입니다.' })} />
             {errors.cvv && <span className={styles.error}>{errors.cvv.message}</span>}
           </div>
-          <button type="submit" className="button button-large btn-Fill btn-layout">
+          <button type="submit" className={`${styles.button} ${styles.buttonLarge} ${styles.btnFill} ${styles.btnLayout}`}>
             저장 & 확인
           </button>
         </form>
